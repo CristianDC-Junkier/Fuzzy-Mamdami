@@ -21,11 +21,12 @@ fuzzy_mamdani/
 ├── data/
 │   ├── variables.json   # Definición de conjuntos y funciones de pertenencia
 │   └── rules.json       # Base de reglas (IF-THEN)
-└── fuzzy/
-    ├── membership.py    # Funciones matemáticas (Triangular, Trapezoidal, etc.)
-    ├── variable.py      # Estructuras para variables lingüísticas
-    ├── rule.py          # Lógica de las reglas difusas
-    ├── data_loader.py   # Parser de archivos JSON
+└── fuzzy-system/
+    ├── knowledgebase/
+    │   ├── rule.py          # Lógica de las reglas difusas
+    │   ├── variable.py      # Estructuras para variables lingüísticas
+    │   ├── data_loader.py   # Parser de archivos JSON
+    │   └── membership.py    # Funciones matemáticas (Triangular, Trapezoidal, etc.)
     ├── fuzzifier.py     # Paso 1: Fuzzificación
     ├── inference.py     # Paso 2: Motor de Inferencia (Mamdani)
     ├── defuzzifier.py   # Paso 3: Desfuzzificación (Método del Centroide)
