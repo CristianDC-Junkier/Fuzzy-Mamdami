@@ -1,0 +1,52 @@
+{
+  "input_variables": {
+
+    "temperature": {
+      "universe": [0, 40],
+      "terms": {
+        "cold": { "type": "triangular", "params": [0, 0, 20] },
+        "warm": { "type": "triangular", "params": [15, 25, 35] },
+        "hot":  { "type": "triangular", "params": [30, 40, 40] }
+      }
+    },
+
+    "humidity": {
+      "universe": [0, 100],
+      "terms": {
+        "dry":    { "type": "triangular", "params": [0, 0, 40] },
+        "normal": { "type": "triangular", "params": [30, 50, 70] },
+        "humid":  { "type": "triangular", "params": [60, 100, 100] }
+      }
+    },
+
+    "occupancy": {
+      "universe": [0, 10],
+      "terms": {
+        "low":    { "type": "triangular", "params": [0, 0, 4] },
+        "medium": { "type": "triangular", "params": [3, 5, 7] },
+        "high":   { "type": "triangular", "params": [6, 10, 10] }
+      }
+    },
+
+    "time_of_day": {
+      "universe": [0, 24],
+      "terms": {
+        "night":   { "type": "triangular", "params": [0, 0, 8] },
+        "day":     { "type": "triangular", "params": [6, 12, 18] },
+        "evening": { "type": "triangular", "params": [16, 24, 24] }
+      }
+    }
+  },
+
+  "output_variables": {
+
+    "fan_speed": {
+      "universe": [0, 100],
+      "terms": {
+        "low":    { "type": "triangular", "params": [0, 0, 40] },
+        "medium": { "type": "triangular", "params": [30, 50, 70] },
+        "high":   { "type": "triangular", "params": [60, 100, 100] }
+      }
+    }
+  }
+}
