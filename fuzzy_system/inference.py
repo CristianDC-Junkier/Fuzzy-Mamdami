@@ -1,42 +1,36 @@
 """
 inference.py
-Evalúa reglas fuzzy Mamdani.
+Evalúa reglas fuzzy Mamdani con AND producto algebraico y Producto Lógico.
 """
 
-def infer_rules(fuzzy_inputs, rules):
+def infer_rules(fuzzy_inputs, rules, output_var):
     """
-    Evalúa la fuerza de activación de cada regla fuzzy Mamdani.
+    Evalúa la fuerza de activación de cada regla y aplica la implicación.
 
     Args:
         fuzzy_inputs: Diccionario con grados de pertenencia de cada variable de entrada.
-                      Ejemplo: {'temperature': {'cold':0.7,'warm':0.3,...}, ...}
-        rules: Lista de reglas fuzzy, cada una con:
-               - antecedent: dict de condiciones de entrada {'temperature':'cold', ...}
-               - consequent: dict de salida {'fan_speed':'medium'}
+        rules: Lista de reglas fuzzy.
+        output_var: FuzzyVariable de salida (para aplicar implicación).
 
     Returns:
-        Lista de tuplas: [(fuerza_de_activacion, consecuente), ...]
+        rule_outputs: Lista de tuplas (fuerza de activación, term_name) lista para defuzzificación.
     """
+    outputs = []
 
-    outputs = []  # Lista donde guardaremos la fuerza de cada regla y su consecuente
-
-    # Recorremos todas las reglas
     for rule in rules:
-        # Obtenemos la fuerza de cada antecedente en la regla
-        # fuzzy_inputs[var][term] devuelve el grado de pertenencia del valor de entrada
-        strengths = [
-            fuzzy_inputs[var][term]
-            for var, term in rule.antecedent.items()
-        ]
+        # Grados de pertenencia de los antecedentes
+        strengths = [fuzzy_inputs[var][term] for var, term in rule.antecedent.items()]
 
-        # AND como producto algebraico
-        # Calcula la fuerza total de la regla combinando todos los antecedentes
+        # AND = producto algebraico
         rule_strength = 1.0
         for s in strengths:
-            rule_strength *= s  # producto de todos los grados de pertenencia
+            rule_strength *= s
 
-        # Guardamos la fuerza de activación y el consecuente
-        outputs.append((rule_strength, rule.consequent))
+        # Producto Lógico (implicación) aplicado al consecuente
+        # Cada término de salida recibe su fuerza multiplicada por la regla
+        for var, term in rule.consequent.items():
+            # Solo consideramos la variable de salida deseada
+            if var == output_var.name:
+                outputs.append((rule_strength, term))
 
-    # Retornamos todas las reglas con su fuerza de activación
     return outputs
