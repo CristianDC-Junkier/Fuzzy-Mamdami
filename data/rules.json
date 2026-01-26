@@ -1,58 +1,14 @@
 [
-  {
-    "if": {"temperature": "cold", "occupancy": "low"},
-    "then": {"fan_speed": "low"}
-  },
-  {
-    "if": {"temperature": "cold", "occupancy": "high"},
-    "then": {"fan_speed": "low"}
-  },
-  {
-    "if": {"temperature": "warm", "humidity": "normal"},
-    "then": {"fan_speed": "medium"}
-  },
-  {
-    "if": {"temperature": "warm", "humidity": "humid"},
-    "then": {"fan_speed": "medium"}
-  },
-  {
-    "if": {"temperature": "hot", "humidity": "normal"},
-    "then": {"fan_speed": "high"}
-  },
-  {
-    "if": {"temperature": "hot", "humidity": "humid"},
-    "then": {"fan_speed": "high"}
-  },
-  {
-    "if": {"temperature": "hot", "occupancy": "low"},
-    "then": {"fan_speed": "high"}
-  },
-  {
-    "if": {"temperature": "hot", "occupancy": "high"},
-    "then": {"fan_speed": "medium"}
-  },
-  {
-    "if": {"temperature": "hot", "time_of_day": "day"},
-    "then": {"fan_speed": "high"}
-  },
-  {
-    "if": {"temperature": "hot", "time_of_day": "evening"},
-    "then": {"fan_speed": "high"}
-  },
-  {
-    "if": {"temperature": "hot", "time_of_day": "night"},
-    "then": {"fan_speed": "medium"}
-  },
-  {
-    "if": {"humidity": "humid", "occupancy": "medium"},
-    "then": {"fan_speed": "medium"}
-  },
-  {
-    "if": {"humidity": "dry", "temperature": "hot"},
-    "then": {"fan_speed": "high"}
-  },
-  {
-    "if": {"humidity": "humid", "temperature": "hot"},
-    "then": {"fan_speed": "high"}
-  }
+  { "if": {"temperature": "hot"}, "then": {"fan_speed": "high"} },
+  { "if": {"temperature": "warm", "occupancy": "high"}, "then": {"fan_speed": "high"} },
+  { "if": {"temperature": "warm", "occupancy": "medium"}, "then": {"fan_speed": "medium"} },
+  { "if": {"temperature": "warm", "occupancy": "low"}, "then": {"fan_speed": "low"} },
+  { "if": {"temperature": "hot", "humidity": "dry"}, "then": {"fan_speed": "medium"} },
+  { "if": {"temperature": "hot", "humidity": "humid"}, "then": {"fan_speed": "high"} },
+  { "if": {"occupancy": "high", "humidity": "humid"}, "then": {"fan_speed": "high"} },
+  { "if": {"occupancy": "low", "time_of_day": "night"}, "then": {"fan_speed": "low"} },
+  { "if": {"temperature": "warm", "time_of_day": "night"}, "then": {"fan_speed": "low"} },
+  { "if": {"temperature": "hot", "time_of_day": "night"}, "then": {"fan_speed": "medium"} },
+  { "if": {"temperature": "cold"}, "then": {"fan_speed": "low"} },
+  { "if": {"humidity": "humid", "temperature": "cold"}, "then": {"fan_speed": "medium"} }
 ]

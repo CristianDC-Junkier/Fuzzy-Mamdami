@@ -5,8 +5,17 @@ Define funciones de pertenencia fuzzy.
 
 def triangular(x, a, b, c):
     """
-    Función de pertenencia triangular.
+    Función de pertenencia triangular corregida para extremos.
     """
+    # Caso para el "Hombro Derecho"
+    if b == c and x >= b:
+        return 1.0
+    
+    # Caso para el "Hombro Izquierdo" 
+    if a == b and x <= b:
+        return 1.0
+
+    # Lógica estándar
     if x <= a or x >= c:
         return 0.0
     elif a < x < b:

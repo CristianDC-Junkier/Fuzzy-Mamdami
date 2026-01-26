@@ -6,7 +6,7 @@ Orquesta el sistema fuzzy completo.
 from fuzzy_system.knowledgebase import load_variables, load_rules
 from fuzzy_system.fuzzifier import fuzzify
 from fuzzy_system.inference import infer_rules
-from fuzzy_system.defuzzifier import centroid
+from fuzzy_system.defuzzifier import pmv_weighted
 
 
 class MamdaniEngine:
@@ -18,4 +18,4 @@ class MamdaniEngine:
     def run(self, inputs, output_name):
         fuzzy_inputs = fuzzify(inputs, self.input_vars)
         rule_outputs = infer_rules(fuzzy_inputs, self.rules)
-        return centroid(self.output_vars[output_name], rule_outputs)
+        return pmv_weighted(self.output_vars[output_name], rule_outputs)
