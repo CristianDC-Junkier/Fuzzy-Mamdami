@@ -26,10 +26,10 @@ fuzzy_mamdani/
     │   ├── rule.py          # Lógica de las reglas difusas
     │   ├── variable.py      # Estructuras para variables lingüísticas
     │   ├── data_loader.py   # Parser de archivos JSON
-    │   └── membership.py    # Funciones matemáticas (Triangular, Trapezoidal, etc.)
+    │   └── membership.py    # Funciones matemáticas (Triangular)
     ├── fuzzifier.py     # Paso 1: Fuzzificación
     ├── inference.py     # Paso 2: Motor de Inferencia (Mamdani)
-    ├── defuzzifier.py   # Paso 3: Desfuzzificación (Método del Centroide)
+    ├── defuzzifier.py   # Paso 3: Desfuzzificación (Método PMV)
     └── engine.py        # Orquestador central del sistema
 ```
 
