@@ -7,11 +7,11 @@ def triangular(x, a, b, c):
     """
     Función de pertenencia triangular corregida para extremos.
     """
-    # Caso para el "Hombro Derecho"
+    # Caso para el extremo de la derecha
     if b == c and x >= b:
         return 1.0
     
-    # Caso para el "Hombro Izquierdo" 
+    # Caso para el extremo de la izquierda 
     if a == b and x <= b:
         return 1.0
 

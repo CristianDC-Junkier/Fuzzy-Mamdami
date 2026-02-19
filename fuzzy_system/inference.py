@@ -25,7 +25,7 @@ def infer_rules(fuzzy_inputs, rules, output_var):
         rule_strength = 1.0
         for s in strengths:
             rule_strength *= s
-
+            
         # Producto Lógico (implicación) aplicado al consecuente
         # Cada término de salida recibe su fuerza multiplicada por la regla
         for var, term in rule.consequent.items():
