@@ -59,10 +59,10 @@ El sistema es altamente flexible gracias a que la lógica de negocio reside en l
 ## Componentes del Sistema
 
 El flujo de trabajo sigue las etapas clásicas de la computación blanda:
-  * fuzzifier.py: Transforma las entradas reales (ej. 25.5°C) en valores difusos usando las funciones en membership.py.
-  * inference.py: Evalúa las reglas y aplica el operador MIN (o producto) para la implicación de Mamdani.
-  * defuzzifier.py: Ejecuta el método del Centroide para obtener un valor nítido de salida (ej. 65% de potencia).
-  * engine.py: Actúa como el cerebro que coordina la comunicación entre todos los módulos.
+ * fuzzifier.py: Convierte las entradas reales (por ejemplo, 25.5 °C) en valores difusos usando las funciones definidas en membership.py.
+ * inference.py: Evalúa las reglas fuzzy Mamdani usando AND como producto algebraico para los antecedentes y registra la fuerza de activación de los consecuentes para la defuzzificación.
+ * defuzzifier.py: Calcula el valor nítido de salida mediante el método PMV (Proportional Mean Value), combinando los centros de los términos ponderados por su fuerza.
+ * engine.py: Coordina la comunicación entre los módulos, actuando como el cerebro del sistema.
 
 ## Ejemplo de Comportamiento
 
